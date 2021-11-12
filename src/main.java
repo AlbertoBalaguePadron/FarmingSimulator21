@@ -4,7 +4,10 @@ public class main {
 
     public static void main(String[] args) {
 
-        Monitor monitor = new Monitor(20)
+        Huerto huerto = new Huerto(20);
+        Jardinero Paco = new Jardinero(huerto, 10, 1000);
+
+        Paco.start();
 
 
     }

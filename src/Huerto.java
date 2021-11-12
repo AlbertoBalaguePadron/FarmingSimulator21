@@ -4,16 +4,15 @@ public class Huerto {
     private boolean full = false;
     private boolean empty = true;
 
-    public Monitor( int capacity){
+    public Huerto(int capacity) {
         this.buff = new char[capacity];
     }
 
 
-    public synchronized void put(char c ) throws InterruptedException {
+    public synchronized void put(char c) throws InterruptedException {
         while (full) {
             wait();
         }
-        System.out.println("Añadiendo valor en Top " + top);
         buff[top] = c;
         top += 1;
         empty = false;
@@ -21,15 +20,16 @@ public class Huerto {
         notifyAll();
     }
 
-
-
-
-
-
-
-
-
-
+    public synchronized char get() throws InterruptedException {
+        while (empty) {
+            wait();
+        }
+        char c = buff[--top];
+        full = false;
+        empty = top <= 0;
+        notifyAll();
+        return c;
+    }
 
 
 }
