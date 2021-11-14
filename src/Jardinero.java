@@ -30,10 +30,16 @@ public class Jardinero extends Thread {
     @Override
     public void run() {
         String c;
+        int valor;
+        String verdura;
+        int tiempoC;
         try {
             for (int i = 0; i < procesUnit; i++) {
-                TiempoCrecimiento = ((int) (Math.random() * 100));
-                sleep((int) (Math.random() * this.sleep));
+                valor = (int) (Math.random() * this.Verduras.length);
+                verdura = Verduras[valor];
+                tiempoC = (int) (Math.random() * this.sleep);
+                System.out.println("Se planta => " + verdura + " Y crecrio a => " + tiempoC);
+                sleep(tiempoC);
             }
 
         } catch (InterruptedException e) {
