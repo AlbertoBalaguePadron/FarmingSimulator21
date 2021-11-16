@@ -3,7 +3,6 @@ public class Jardinero extends Thread {
     private final Huerto buffer;
     private final int procesUnit;
     private final int sleep;
-    private double TiempoCrecimiento;
     private String [] Verduras = {
             "lettuce",
             "cabbage",
@@ -29,7 +28,6 @@ public class Jardinero extends Thread {
 
     @Override
     public void run() {
-        String c;
         int valor;
         String verdura;
         int tiempoC;
@@ -38,8 +36,12 @@ public class Jardinero extends Thread {
                 valor = (int) (Math.random() * this.Verduras.length);
                 verdura = Verduras[valor];
                 tiempoC = (int) (Math.random() * this.sleep);
+                buffer.Plantar(verdura);
                 System.out.println("Se planta => " + verdura + " Y crecrio a => " + tiempoC);
+                System.out.println("------------------------------------------------------");
+
                 sleep(tiempoC);
+
             }
 
         } catch (InterruptedException e) {
