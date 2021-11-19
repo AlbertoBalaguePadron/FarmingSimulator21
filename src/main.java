@@ -5,9 +5,11 @@ public class main {
         int TiempoEspera = 2000;
 
         Huerto huerto = new Huerto(10);
-        Jardinero Paco = new Jardinero(huerto, Cantidad, 200);
-        Consumidor Cliente = new Consumidor(huerto, Cantidad, 20000);
+        Jardinero Paco = new Jardinero(huerto, Cantidad, TiempoEspera);
+        Consumidor Cliente = new Consumidor(huerto, Cantidad, TiempoEspera);
 
+        Paco.setPriority(Thread.MAX_PRIORITY);
+        Cliente.setPriority(Thread.NORM_PRIORITY);
 
         Paco.start();
         Cliente.start();
