@@ -18,10 +18,11 @@ public class Consumidor extends Thread {
         try {
 
             for (int i = 0; i < exprocesUnit; i++) {
-                String texto = buffer.Comprar();
-                System.out.println("Comprada la verdura " + texto);
                 tiempoC = (int) (Math.random() * this.sleep);
                 sleep(tiempoC);
+
+                String texto = buffer.Comprar();
+                System.out.println("Comprada la verdura " + texto);
 
             }
 

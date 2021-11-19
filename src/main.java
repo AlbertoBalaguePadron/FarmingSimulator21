@@ -1,12 +1,14 @@
-import javax.management.monitor.Monitor;
-
 public class main {
 
     public static void main(String[] args) {
+        int Cantidad = 10;
+        int TiempoEspera = 2000;
 
         Huerto huerto = new Huerto(10);
-        Jardinero Paco = new Jardinero(huerto, 20, 1000);
-        Consumidor Cliente = new Consumidor(huerto, 18, 2000);
+        Jardinero Paco = new Jardinero(huerto, Cantidad, TiempoEspera);
+        Consumidor Cliente = new Consumidor(huerto, Cantidad, TiempoEspera);
+
+
 
         Paco.start();
         Cliente.start();
